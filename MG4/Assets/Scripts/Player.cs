@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         // To do so, GET the FloatAnimation Component on the GameObject we
         //      collided with, and CALL the StopAnimation method on this
         //      Component.
-        //
+        other.GetComponent<FloatAnimation>().StopAnimation();
         // Feature 5 of the rubric should work after this.
 
 
@@ -81,15 +81,15 @@ public class Player : MonoBehaviour
             {
                 case EquationType.Add:
                     // UNCOMMENT AFTER STEP 3
-                    //correct = CheckIfAdditionCorrect(number);
+                    correct = CheckIfAdditionCorrect(number);
                     break;
                 case EquationType.Subtract:
                     // UNCOMMENT AFTER STEP 4
-                    //correct = CheckIfSubtractionCorrect(number);
+                    correct = CheckIfSubtractionCorrect(number);
                     break;
                 case EquationType.Multiply:
                     // UNCOMMENT AFTER STEP 5
-                    //correct = CheckIfMultiplicationCorrect(number);
+                    correct = CheckIfMultiplicationCorrect(number);
                     break;
             }
         }
@@ -119,7 +119,10 @@ public class Player : MonoBehaviour
     // STEP 3 -----------------------------------------------------------------
     // Write a method named CheckIfAdditionCorrect to check if the answer a player
     //      gave for an addition question was correct or not.
-    //
+  bool CheckIfAdditionCorrect(int answer)
+{
+    return _number1 + _number2 == answer;
+}
     // INPUT: an integer number 
     // OUTPUT: a true or false value
     //
@@ -147,7 +150,10 @@ public class Player : MonoBehaviour
     // STEP 4 -----------------------------------------------------------------
     // Write a method named CheckIfSubtractionCorrect that works almost exactly
     //      the same as CheckIfAdditionCorrect, but uses subtraction instead.
-    //
+    bool CheckIfSubtractionCorrect (int answer)
+    {
+        return _number1 - _number2 == answer;
+    }
     // INPUT: an integer number 
     // OUTPUT: a true or false value
     //
@@ -163,7 +169,10 @@ public class Player : MonoBehaviour
     // STEP 5 -----------------------------------------------------------------
     // Write a method named CheckIfMultiplicationCorrect that works almost exactly
     //      the same as CheckIfAdditionCorrect, but uses multiplication instead.
-    //
+     bool CheckIfMultiplicationCorrect(int answer)
+{
+    return _number1 * _number2 == answer;
+}
     // INPUT: an integer number 
     // OUTPUT: a true or false value
     //
